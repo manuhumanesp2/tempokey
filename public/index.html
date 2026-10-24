@@ -1,0 +1,22 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TempoKey — BPM y tonalidad para DJs</title><link rel="stylesheet" href="styles.css"></head><body>
+<header><b class="logo">TEMPO<span>KEY</span></b><nav><a href="#buscador">Buscador</a><a href="#compat">Compatibilidad</a><a href="#acerca">Acerca de</a></nav></header>
+<main>
+<section class="hero" id="buscador"><h1>Encuentra el ritmo. Conecta los tracks.</h1>
+<p>Busca una canción, consulta su BPM y tonalidad y descubre qué temas encajan en tu mezcla.</p>
+<form id="f" role="search"><label for="q" class="sr">Título o artista</label><input id="q" maxlength="100" placeholder="Artista y/o título…" autocomplete="off"><button>Buscar</button></form>
+<p id="status" role="status" aria-live="polite"></p></section>
+<section id="resultados" hidden><div class="bar">
+<label>BPM mín <input id="fmin" type="number" min="30" max="300"></label><label>BPM máx <input id="fmax" type="number" min="30" max="300"></label>
+<label>Texto <input id="ftxt"></label><label>Tonalidad <select id="fkey"><option value="">Todas</option></select></label>
+<button id="clr" type="button">Limpiar filtros</button><button id="csv" type="button">Exportar CSV</button></div>
+<div class="wrap"><table><thead><tr><th><button data-s="title">Título</button><th><button data-s="artist">Artista</button><th><button data-s="bpm">BPM</button><th><button data-s="key">Tonalidad</button><th>Camelot<th>Género<th>Fuente<th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<section id="compat" hidden><h2>Encuentra tu siguiente track</h2><p id="base"></p>
+<div class="bar"><label>Rango BPM ± <select id="rng"><option>2<option selected>4<option>6<option>10</select></label>
+<label><input type="checkbox" id="strict" checked> Armonía estricta</label><label><input type="checkbox" id="hd"> Permitir doble/mitad de tempo</label></div>
+<p id="cstatus" role="status"></p><div id="clist" class="cards"></div>
+<p class="note">Reglas orientativas: que dos tracks sean compatibles en tempo y tonalidad no garantiza que suenen bien juntos. Solo se evalúan canciones que la fuente devuelve para ese BPM (no todo el catálogo).</p></section>
+<section id="acerca"><h2>Acerca de</h2>
+<p>Datos de BPM y tonalidad: <a href="https://getsongbpm.com" rel="noopener">GetSongBPM</a>. Las búsquedas se envían a un servidor propio que las reenvía a GetSongBPM; no hay registro ni cookies. Los códigos Camelot marcados con * los calcula esta web a partir de la tonalidad. Si un dato falta se muestra «—» y no se usa para recomendar.</p></section>
+</main><footer>TempoKey · proyecto independiente · sin reproducción de música</footer>
+<script type="module" src="app.js"></script></body></html>
